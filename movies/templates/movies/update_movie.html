@@ -1,0 +1,12 @@
+{% extends 'movies/base.html' %}
+{% block content %}
+    <div class="mt-5 ">
+        <form action="" method="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+           <input class="btn btn-primary m-1" type="submit" value="Upload">
+           <input class="btn btn-primary m-1" type="button" value="Cancel">
+        </form>
+       
+    </div>
+{% endblock %}

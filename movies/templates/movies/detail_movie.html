@@ -1,0 +1,25 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="">
+            <video class=" w-75" src="{{movies.video.url}}" controls autoplay></video>
+        </div>
+        <hr class="border border-1">
+        <h4 class="text-white">comment...</h4>
+        {% for comment in comments %}
+            <p class="mb-0 text-white"><span class="text-primary">{{comment.user}}</span> {{comment.date}}</p>
+            <p class="mt-0 text-white">{{comment.content}}</p>
+        {% endfor %}
+        {% if user.is_authenticated %}
+        <div class="w-50">
+            <form class="" action="{% url 'detail_movie' movies.id %}" method="post">
+                {% csrf_token %}
+                <textarea class="form-control" name="comment" id="" cols="30" rows="5" placeholder="comment here..."></textarea>
+                <input class="btn btn-primary mt-1 " type="submit" value="comment" >
+            </form>
+            
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

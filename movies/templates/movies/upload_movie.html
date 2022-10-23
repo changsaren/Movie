@@ -1,0 +1,21 @@
+{% extends 'movies/base.html' %}
+{% block content %}
+    <div class="mt-5 ">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="form-control" type="text" name="title" id="" placeholder="Title">
+           <div>
+                <label for="image" class="btn border mt-3 text-white">upload image</label>
+                <input id="image" style="visibility:hidden;" type="file" name="image">
+           </div>
+           <div>
+                <label for="video" class="btn border mt-3 mb-3 text-white">upload video</label>
+                <input id="video" style="visibility:hidden;" type="file" name="video">
+           </div>
+           <textarea class="form-control" name="content" id="" cols="30" rows="5"></textarea>
+           <input class="btn btn-primary m-1" type="submit" value="Upload">
+           <input class="btn btn-primary m-1" type="button" value="Cancel">
+        </form>
+       
+    </div>
+{% endblock %}
